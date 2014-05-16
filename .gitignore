@@ -1,0 +1,12 @@
+# node
+node_modules/
+
+# ide
+.idea/
+
+# django
+settings.py
+
+#python
+*.pyc
+
