@@ -4,9 +4,12 @@ node_modules/
 # ide
 .idea/
 
-# django
+# django settings
 settings.py
 
-#python
+# compiled
 *.pyc
+evasion/static/css/
+evasion/static/min/
+
 

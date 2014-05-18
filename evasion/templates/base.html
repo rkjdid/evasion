@@ -1,9 +1,34 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="keywords" content="chambre, charme, jacuzzi, détente, repos, marseille, hôtel">
+  <title>Évasion Antillaise</title>
+
+{#  <link rel="shortcut icon" href="{{ STATIC_URL }}img/ongle.png" type="image/x-icon"/>#}
+
+{% if settings.DEBUG %}
+  <link rel="stylesheet" type="text/css" href="{% static "min/evasion.0.dev.min.css" %}" />
+{% else %}
+  <link rel="stylesheet" type="text/css" href="{% static "min/evasion.0.min.css" %}" />
+{% endif %}
+
+  {% block posthead %}{% endblock %}
 </head>
+
+
 <body>
   {% block body %}{% endblock %}
+
+{% if DEBUG %}
+  <script src="{% static "min/evasion.0.dev.min.js" %}"></script>
+{% else %}
+  <script src="{% static "min/evasion.0.min.js" %}"></script>
+{% endif %}
+{% block script %}{% endblock %}
+
 </body>
 </html>
