@@ -80,26 +80,37 @@ module.exports = function(grunt){
       }
     },
 
+
     concat: {
       dist: {
-        src: [
-          path.join(__opts.path.mincss, "*.css")
-        ],
+        src: [path.join(__opts.path.mincss, "*.css")],
         dest: path.join(__opts.path.out, __config.project + ".0.min.css")
       },
       dev: {
-        src: [
-          path.join(__opts.path.css, "*.css")
-        ],
+        src: [path.join(__opts.path.css, "*.css")],
         dest: path.join(__opts.path.out, __config.project + ".0.dev.min.css")
       }
     },
 
     watch: {
-
+      css: {
+        files: [path.join(__opts.path.scss, '**/*.scss')],
+        tasks: ['css']
+      },
+      js: {
+        files: [path.join(__opts.path.js, '*.js')],
+        tasks: ['js']
+      },
+      gruntfile: {
+        files: ["Gruntfile.js"],
+        tasks: ['jshint']
+      }
     }
 
   });
+
+  grunt.registerTask('css',     ['compass', 'concat']);
+  grunt.registerTask('js',      ['jshint', 'uglify']);
 
   grunt.registerTask('dist',    ['jshint', 'uglify:dist', 'compass:dist', 'concat:dist']);
   grunt.registerTask('dev',     ['jshint', 'uglify:dev', 'compass:dev', 'concat:dev']);

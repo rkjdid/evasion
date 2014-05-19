@@ -1,0 +1,78 @@
+@import "0.base";
+
+$c1: rgba(0, 66, 209, .36);
+$c2: rgba(0, 222, 243, .36);
+
+// Head
+section.container {
+  position: absolute;
+  width: 100%;
+
+  height: 10%;
+  min-height: 100px;
+
+  background-color: $c1;
+  background-color: $c2;
+
+  z-index: 1;
+
+  header {
+    h1 {
+      font-family: 'Great Vibes', 'BebasNeueRegular', sans-serif;
+      position: relative;
+      margin-left: 4%;
+      text-align: left;
+
+      font-size: 50px;
+      line-height: 28px;
+      position: relative;
+      font-weight: 400;
+      color: #fff;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.28);
+      padding: 0px 0px 5px 0px;
+    }
+
+    h2 {
+      @extend h1;
+      margin-left: 12%;
+      font-size: 34px;
+      line-height: 26px;
+    }
+
+    h5 {
+      @extend h2;
+
+      text-align: right;
+      right: 0;
+
+      font-size: 26px;
+      line-height: 26px;
+      position: absolute;
+      bottom: 0px;
+      margin-right: 4%;
+
+      &.up {
+        bottom: 26px;
+        line-height: 20px;
+      }
+    }
+  }
+}
+
+// Slide
+.cb-slideshow li div {
+  h3 {
+    font-family: 'Great Vibes', 'BebasNeueRegular', sans-serif;
+    font-size: 140px;
+    padding: 15px;
+    line-height: 140px;
+    text-align: right;
+    margin-right: 75px;
+  }
+
+  h4 {
+    @extend h3;
+    font-size: 85px;
+    line-height: 225px;
+  }
+}
