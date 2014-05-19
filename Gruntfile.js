@@ -2,7 +2,10 @@ module.exports = function(grunt){
   // project global config
   var __config = {
     project:      'evasion',
-    static_root:  'evasion/static'
+    static_root:  'evasion/static',
+
+    css_version: 1,
+    js_version: 0
   };
 
   // paths
@@ -84,11 +87,11 @@ module.exports = function(grunt){
     concat: {
       dist: {
         src: [path.join(__opts.path.mincss, "*.css")],
-        dest: path.join(__opts.path.out, __config.project + ".0.min.css")
+        dest: path.join(__opts.path.out, __config.project + "." + __config.css_version + ".min.css")
       },
       dev: {
         src: [path.join(__opts.path.css, "*.css")],
-        dest: path.join(__opts.path.out, __config.project + ".0.dev.min.css")
+        dest: path.join(__opts.path.out, __config.project + "." + __config.css_version + ".dev.min.css")
       }
     },
 
