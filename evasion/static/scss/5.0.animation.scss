@@ -1,0 +1,93 @@
+@import "mixins";
+
+$delay: 3.2s;
+$count: 6;
+
+.fancy li span {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: transparent;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: none;
+  opacity: 0;
+  z-index: 0;
+}
+
+.fancy li div {
+  z-index: 1000;
+  position: absolute;
+  bottom: 30px;
+  left: 0px;
+  width: 100%;
+  text-align: center;
+  opacity: 0;
+  color: #fff;
+}
+
+.anim-fade {
+  @include prefix("animation", "fade #{$count*$delay} linear infinite 0s");
+}
+.anim-fadebg {
+  @include prefix("animation", "fadebg #{$count*$delay} linear infinite 0s");
+}
+.anim-image, .fancy li span {
+  @include prefix("backface-visibility", "hidden");
+  @include prefix("animation", "image #{$count*$delay} linear infinite 0s");
+}
+.anim-title, .fancy li div {
+  @include prefix("animation", "title #{$count*$delay} linear infinite 0s");
+}
+
+@for $i from 1 through $count {
+  .fancy li:nth-child(#{$i}) {
+    span, div, .anim-image, .anim-title {
+      @include prefix("animation-delay", #{($i - 1)*$delay});
+    }
+
+    span, .anim-image {
+      background-image: url(/static/img/#{$i}.jpg);
+    }
+  }
+}
+
+@include keyframes("image") {
+  0% {opacity: 0; @include prefix("animation-timing-function", "ease-in");}
+  8% {opacity: 1; @include prefix("animation-timing-function", "ease-out");}
+  17% {opacity: 1}
+  25% {opacity: 0}
+  100% {opacity: 0}
+}
+
+@include keyframes("title") {
+  0% {opacity: 0}
+  8% {opacity: 1}
+  17% {opacity: 1}
+  19% {opacity: 0}
+  100% {opacity: 0}
+}
+
+@include keyframes("fade") {
+  0% {opacity: 1}
+  8% {opacity: 1}
+  17% {opacity: 1}
+  42% {opacity: 1}
+  44% {opacity: 0}
+  98% {opacity: 0}
+  100% {opacity: 0}
+}
+
+@import "colors";
+
+@include keyframes("fadebg") {
+  0% {background: $c2;}
+  8% {background: $c2;}
+  17% {background: $c2;}
+  42% {background: $c2;}
+  44% {background: $alpha;}
+  98% {background: $alpha;}
+  100% {background: $c2;}
+}
