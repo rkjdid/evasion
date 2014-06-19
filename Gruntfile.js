@@ -98,25 +98,29 @@ module.exports = function(grunt){
     watch: {
       css: {
         files: [path.join(__opts.path.scss, '**/*.scss')],
-        tasks: ['css']
+        tasks: ['compass:dev', 'concat:dev']
       },
       js: {
         files: [path.join(__opts.path.js, '*.js')],
-        tasks: ['js']
+        tasks: ['uglify:dev']
       },
       gruntfile: {
         files: ["Gruntfile.js"],
-        tasks: ['jshint']
+        tasks: ['jshint:default']
       }
-    }
+    },
 
+    clean: [
+      __opts.path.mincss,
+      __opts.path.out
+    ]
   });
 
   grunt.registerTask('css',     ['compass', 'concat']);
-  grunt.registerTask('js',      ['jshint', 'uglify']);
+  grunt.registerTask('js',      ['jshint:default', 'uglify']);
 
-  grunt.registerTask('dist',    ['jshint', 'uglify:dist', 'compass:dist', 'concat:dist']);
-  grunt.registerTask('dev',     ['jshint', 'uglify:dev', 'compass:dev', 'concat:dev']);
+  grunt.registerTask('dist',    ['jshint:default', 'uglify:dist', 'compass:dist', 'concat:dist']);
+  grunt.registerTask('dev',     ['jshint:default', 'uglify:dev', 'compass:dev', 'concat:dev']);
 
   grunt.registerTask('all',     ['dev', 'dist']);
   grunt.registerTask('default', 'all');
