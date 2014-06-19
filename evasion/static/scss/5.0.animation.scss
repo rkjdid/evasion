@@ -29,10 +29,10 @@ $count: 6;
 }
 
 .anim-fade {
-  @include prefix("animation", "fade #{$count*$delay} linear infinite 0s");
+  //@include prefix("animation", "fade #{$count*$delay} linear infinite 0s");
 }
 .anim-fadebg {
-  @include prefix("animation", "fadebg #{$count*$delay} linear infinite 0s");
+  //@include prefix("animation", "fadebg #{$count*$delay} linear infinite 0s");
 }
 .anim-image, .fancy li span {
   @include prefix("backface-visibility", "hidden");
@@ -42,6 +42,13 @@ $count: 6;
   @include prefix("animation", "title #{$count*$delay} linear infinite 0s");
 }
 
+.p2_3 {
+  @include prefix("animation", "p3 #{$count*$delay} linear infinite #{2.2*$delay}");
+}
+
+
+@import "version";
+
 @for $i from 1 through $count {
   .fancy li:nth-child(#{$i}) {
     span, div, .anim-image, .anim-title {
@@ -49,7 +56,7 @@ $count: 6;
     }
 
     span, .anim-image {
-      background-image: url(/static/img/#{$i}.jpg);
+      background-image: url(/static/img/#{$version}/#{$i}.jpg);
     }
   }
 }
@@ -67,6 +74,14 @@ $count: 6;
   8% {opacity: 1}
   17% {opacity: 1}
   19% {opacity: 0}
+  100% {opacity: 0}
+}
+
+@include keyframes("p3") {
+  0% {opacity: 0}
+  8% {opacity: 1}
+  62% {opacity: 1}
+  66% {opacity: 0}
   100% {opacity: 0}
 }
 
