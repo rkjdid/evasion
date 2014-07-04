@@ -10,3 +10,28 @@ body {
   height: 100%;
   position: relative;
 }
+
+hr {
+  display: block;
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+  border-style: inset;
+  border-width: 1px;
+  border-color: white;
+}
+
+@import "mixins";
+
+// Common animations
+@include keyframes("hshake") {
+    0% {@include prefix("transform", translate(0, 0));}
+    20% {@include prefix("transform", translate(3px, 0));}
+    30% {@include prefix("transform", translate(-4px, 0));}
+    40% {@include prefix("transform", translate(5px, 0));}
+    50% {@include prefix("transform", translate(-6px, 0));}
+    60% {@include prefix("transform", translate(8px, 0));}
+    70% {@include prefix("transform", translate(-8px, 0));}
+    80% {@include prefix("transform", translate(6px, 0));}
+    90% {@include prefix("transform", translate(-4px, 0));}
+    100% {@include prefix("transform", translate(0, 0));}
+}

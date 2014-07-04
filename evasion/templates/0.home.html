@@ -1,39 +1,118 @@
 {% extends 'base.html' %}
 
 {% block body %}
-  <section class="container fadebg12s">
+  <section class="container anim-fadebg">
     <header>
-      <h1 class="fade12s">Evasion Antillaise</h1>
-      <h2 class="fade12s">La St-Barth</h2>
-      <h5 class="up">Marseille - Bords de plage</h5>
-      <h5>Tarifs & réservation au 0609142444</h5>
+      <h1 class="anim-fade">Évasion Antillaise</h1>
+      <h2 class="anim-fade">Suite St-Barth</h2>
     </header>
+    <nav>
+      <ul>
+        <li data-index="1">Présentation</li><!--Margin fighting
+     --><li data-index="2">Tarifs</li><!--Margin fighting
+     --><li data-index="3">Réservation</li><!--Margin fighting
+   --></ul>
+    </nav>
   </section>
+  <div class="items">
+    <div data-index="1">
+      <div class="filler"></div>
+      <p>Évasion en amoureux, déclaration d'amour,
+        nuit de noce, anniversaire de mariage...<br><br>
+        À 100 mètres de la plage dans le 8ème à Marseille, la suite St-Barth saura immortaliser vos instants de bonheur.</p>
+    </div>
+    <div data-index="2">
+      <div class="filler"></div>
+      <p>
+        1 nuit en semaine................................................250€<br>
+        1 nuit en week-end............................................300€<br>
+        2 nuits en semaine.............................................400€<br>
+        1 week-end complet..........................................500€<br>
+        1 semaine complète..........................................1500€<br><br>
+        Possibilité de repas en chambre.<br><br>
+      </p>
+      <p style="text-align: left;">
+        Pour le Nouvel an et la St-Valentin, nous contacter.<br>
+      </p>
+    </div>
+    <div data-index="3" class="contact">
+      <div class="filler"></div>
+      <p>Contactez Nathalie directement au 0609142444, ou remplissez le formulaire ci-dessous</p>
+      <hr>
+      <form>
+        <div class="row">
+          <label for="email">Mail*</label>
+          <input id="email" name="email" type="text"/><br>
+        </div>
 
-  <ul class="cb-slideshow">
-      <li>
-        <span>Image 01</span>
-        <div><h3>Bienvenue...</h3></div>
-      </li>
-      <li>
-        <span>Image 02</span>
-        <div><h3>...à la St-Barth</h3></div>
-      </li>
-      <li>
-        <span>Image 03</span>
-{#        <div><h4>Réservations au 0606060606</h4></div>#}
-      </li>
-      <li>
-        <span>Image 04</span>
-{#        <div><h4>Réservations au 0606060606</h4></div>#}
-      </li>
-      <li>
-        <span>Image 05</span>
-{#        <div><h4>Réservations au 0606060606</h4></div>#}
-      </li>
-      <li>
-        <span>Image 06</span>
-{#        <div><h4>Réservations au 0606060606</h4></div>#}
-      </li>
+        <div class="row">
+          <label for="firstname">Prénom*</label>
+          <input id="firstname" name="firstname" type="text"/><br>
+        </div>
+
+        <div class="row">
+          <label for="lastname">Nom</label>
+          <input id="lastname" name="lastname" type="text"/><br>
+        </div>
+
+        <div class="row">
+          <label for="phone">Téléphone</label>
+          <input id="phone" name="phone" type="text"/><br>
+        </div>
+
+        <div class="row">
+          <label for="date">Date</label>
+          <input id="date" name="date" type="text" class="datepicker" size="10"/><br>
+        </div>
+
+        <div class="row">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="6" placeholder="Pour toute question ou information complémentaire"></textarea><br>
+        </div>
+        <div class="row">
+          <label></label>
+          <button>Envoyer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+{#  <span class="fullscreen"></span>#}
+
+  <ul class="fancy">
+    <li>
+      <span></span>
+      <div>
+        <h3>Bienvenue...</h3>
+      </div>
+    </li>
+    <li>
+      <span></span>
+      <div><h3>...à la suite St-Barth</h3></div>
+    </li>
+    <li>
+      <span></span>
+      <div>
+        <h3></h3>
+      </div>
+    </li>
+    <li>
+      <span></span>
+      <div>
+        <h3></h3>
+      </div>
+    </li>
+    <li>
+      <span></span>
+      <div>
+        <h3></h3>
+      </div>
+    </li>
+    <li>
+      <span></span>
+      <div>
+        <h3></h3>
+      </div>
+    </li>
   </ul>
 {% endblock %}

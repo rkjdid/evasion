@@ -1,0 +1,295 @@
+@import "colors";
+@import "mixins";
+
+// Head
+section.container {
+  position: relative;
+  width: 100%;
+  min-height: 100px;
+
+  background-color: $c2;
+
+  z-index: 1;
+
+  header {
+    h1 {
+      font-family: 'Great Vibes', sans-serif;
+      font-family: 'BebasNeueRegular', sans-serif;
+      position: relative;
+      margin-left: 4%;
+      text-align: left;
+
+      font-size: 50px;
+      line-height: 28px;
+      position: relative;
+      font-weight: 400;
+      color: #fff;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.28);
+      padding: 0px 0px 5px 0px;
+    }
+
+    h2 {
+      @extend h1;
+      //margin-left: 12%;
+      font-size: 34px;
+      line-height: 26px;
+    }
+
+    h5 {
+      @extend h2;
+
+      text-align: right;
+      right: 0;
+
+      font-size: 26px;
+      line-height: 26px;
+      position: absolute;
+      bottom: 0px;
+      margin-right: 4%;
+
+      &.up {
+        bottom: 26px;
+        line-height: 20px;
+      }
+    }
+  }
+}
+
+// Nav
+nav {
+  font-family: "BebasNeueRegular", sans-serif;
+
+  position: absolute;
+  right: 80px;
+  bottom: 0;
+  z-index: 1;
+
+  font-size: 2em;
+
+  ul {
+    list-style: none;
+
+    li {
+      cursor: pointer;
+      padding: 3px 10px 0px 10px;
+      display: inline-block;
+      border-bottom: 2px solid rgba(255,255,255,0);
+
+      &:hover, &.active {
+        background: rgba(255,255,255, .4);
+        border-bottom: 2px solid white;
+
+      }
+    }
+  }
+}
+
+.items {
+  font-family: Helvetica, sans-serif;
+  color: black;
+
+  position: relative;
+  z-index: 1;
+  float: right;
+  margin-top: -10px;
+  display: inline-block;
+  width: 349px;
+  background: $c2;
+  //background: rgba(255, 255, 255, 0.5);
+  //bakcground: rgba(0, 222, 243, 0.36);
+  //background: $c3;
+
+  margin-right: 80px;
+  padding: 15px;
+
+  text-align: justify;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.35);
+  display: none;
+
+  & > div {
+    display: none;
+
+    &.active {
+      display: block;
+
+      .filler {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        position: absolute;
+        z-index: 0;
+        background: rgba(255,255,255, .4);
+      }
+
+      form, p, label {
+        font-family: "Quattrocento Sans", sans-serif;
+        z-index: 1;
+        position: relative;
+      }
+    }
+  }
+
+  & > div.filler {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  &, * {
+    color: black;
+    font-size: 12pt;
+  }
+
+  form {
+    display: table;
+    border-collapse: collapse;
+    width: 100%;
+
+    div.row {
+      display: table-row;
+      width: 100%;
+      border-bottom: 2px solid rgba(255, 255, 255, 0);
+
+      label {
+        vertical-align: middle;
+        width: 30%;
+      }
+
+      input, textarea {
+        width: 80%;
+        cursor: text;
+        float: right;
+      }
+
+      textarea {
+        resize: none;
+        overflow: auto;
+      }
+
+      input, textarea {
+        display: table-cell;
+        font-family: Helvetica, sans-serif;
+        text-align: justify;
+      }
+
+      label {
+        display: table-cell;
+      }
+
+      &.error {
+        @include prefix("animation", hshake .4s ease-out);
+
+        label {
+          color: $error;
+        }
+      }
+    }
+
+    button {
+      cursor: pointer;
+
+      float: right;
+      padding: 4px 7px;
+      background: white;
+      border: 2px solid black;
+
+      font-family: "Quattrocento Sans", sans-serif;
+    }
+  }
+}
+
+// Slide
+.fancy,
+.fancy:after {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  z-index: 0;
+}
+
+.fancy:after {
+  content: '';
+  background: transparent url(/static/img/pattern.png) repeat top left;
+  opacity: .7;
+}
+
+.fancy li div {
+  h3 {
+    font-family: 'Great Vibes', 'BebasNeueRegular', sans-serif;
+    font-size: 140px;
+    padding: 15px;
+    line-height: 140px;
+    text-align: right;
+    margin-right: 80px;
+  }
+
+  h4 {
+    @extend h3;
+    font-size: 85px;
+  }
+}
+
+// jQuery-ui tune
+.ui-datepicker {
+  font-size: .8em;
+  width: 14em;
+
+  * {
+    color: #3a3a3a;
+  }
+}
+
+//.fullscreen {
+//  position: fixed;
+//  z-index: 1;
+//  bottom: 3%;
+//  left: 3%;
+//  width: 30px;
+//  height: 20px;
+//  border: 2px solid white;
+//  border-radius: 3px;
+//}
+
+/* Media Queries */
+@media screen and (max-width: 767px) {
+  .container > header {
+    text-align: center;
+  }
+  p.codrops-demos {
+    position: relative;
+    top: auto;
+    left: auto;
+  }
+}
+
+/* Show at least something when animations not supported */
+.no-cssanimations .fancy li span {
+  opacity: 1;
+}
+
+@media screen and (max-width: 1140px) {
+  .fancy li div {
+    h3 {
+      font-size: 140px;
+    }
+
+    h4 {
+      font-size: 100px;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .fancy li div {
+    h3 {
+      font-size: 80px;
+    }
+
+    h4 {
+      font-size: 60px;
+    }
+  }
+}
