@@ -1,7 +1,5 @@
-from django.shortcuts import render_to_response, redirect, render
+from django.shortcuts import render_to_response, redirect as _redirect
 from django.template.context import RequestContext
-
-from django.conf import settings
 
 def home(request):
 
@@ -12,3 +10,6 @@ def home(request):
       params,
       context_instance=RequestContext(request)
   )
+
+def redirect(request, url="/"):
+  return _redirect(url, context_instance=RequestContext)
