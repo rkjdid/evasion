@@ -4,8 +4,8 @@ module.exports = function(grunt){
     project:      'evasion',
     static_root:  'evasion/static',
 
-    css_version: 1,
-    js_version: 0
+    css_version: 2,
+    js_version: 1
   };
 
   // paths
@@ -34,7 +34,7 @@ module.exports = function(grunt){
     uglify: {
       dist: {
         files: {
-          'evasion/static/min/evasion.0.min.js': [
+          'evasion/static/min/evasion.1.min.js': [
             path.join('!' + __opts.path.js, '**/*min.js'),
 
             path.join(__opts.path.js, 'lib/jquery-2.1.1.js'),
@@ -50,7 +50,7 @@ module.exports = function(grunt){
           mangle: false
         },
         files: {
-          'evasion/static/min/evasion.0.dev.min.js': [
+          'evasion/static/min/evasion.1.dev.min.js': [
             path.join('!' + __opts.path.js, '**/*min.js'),
 
             path.join(__opts.path.js, 'lib/jquery-2.1.1.js'),
