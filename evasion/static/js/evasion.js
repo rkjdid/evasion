@@ -70,6 +70,9 @@
   });
 
   function jaxIt($form, email, lastname, firstname, phone, date, message) {
+    $form.find("button").css("visibility", "hidden");
+    $form.find(".loader").addClass("active");
+
     $.ajax({
       type: "GET",
       url: "/contact/",
@@ -82,7 +85,13 @@
         'message': message
       },
       success: function (data) {
+        $form.find(".loader").removeClass("active");
         $form.before("<p>" + data.result + "</p>").remove();
+      },
+      error: function(data) {
+        $form.find(".loader").removeClass("active");
+        $form.find("button").css("visibility", "visible");
+        $form.find("button").parent(".row").addClass("error");
       }
     });
   }

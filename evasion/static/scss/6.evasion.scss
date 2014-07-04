@@ -186,14 +186,23 @@ nav {
       }
     }
 
-    button {
-      cursor: pointer;
-
+    .loader {
       float: right;
+      margin-top: 5px;
+      display: none;
+    }
+
+    .loader.active {
+      display: inline-block;
+    }
+
+    button {
+      float: right;
+
+      cursor: pointer;
       padding: 4px 7px;
       background: white;
       border: 2px solid black;
-
       font-family: "Quattrocento Sans", sans-serif;
     }
   }
