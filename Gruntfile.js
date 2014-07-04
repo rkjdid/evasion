@@ -38,6 +38,7 @@ module.exports = function(grunt){
             path.join('!' + __opts.path.js, '**/*min.js'),
 
             path.join(__opts.path.js, 'lib/jquery-2.1.1.js'),
+            path.join(__opts.path.js, 'lib/jquery-ui-1.11.0.js'),
             path.join(__opts.path.js, 'lib/**/*.js'),
             path.join(__opts.path.js, '*.js')
           ]
@@ -53,6 +54,7 @@ module.exports = function(grunt){
             path.join('!' + __opts.path.js, '**/*min.js'),
 
             path.join(__opts.path.js, 'lib/jquery-2.1.1.js'),
+            path.join(__opts.path.js, 'lib/jquery-ui.1.11.0.js'),
             path.join(__opts.path.js, 'lib/**/*.js'),
             path.join(__opts.path.js, '*.js')
           ]
@@ -83,15 +85,23 @@ module.exports = function(grunt){
       }
     },
 
-
     concat: {
       dist: {
-        src: [path.join(__opts.path.mincss, "*.css")],
+        src: [path.join(__opts.path.scss, "lib/**/*.css"), path.join(__opts.path.mincss, "*.css")],
         dest: path.join(__opts.path.out, __config.project + "." + __config.css_version + ".min.css")
       },
       dev: {
-        src: [path.join(__opts.path.css, "*.css")],
+        src: [path.join(__opts.path.scss, "lib/**/*.css"), path.join(__opts.path.css, "*.css")],
         dest: path.join(__opts.path.out, __config.project + "." + __config.css_version + ".dev.min.css")
+      }
+    },
+
+    copy: {
+      jqueryui: {
+        expand: true,
+        cwd: path.join(__opts.path.scss, "lib/jquery-ui-1.11.0-custom/"),
+        src: ["images/*"],
+        dest: __opts.path.out
       }
     },
 
@@ -119,8 +129,8 @@ module.exports = function(grunt){
   grunt.registerTask('css',     ['compass', 'concat']);
   grunt.registerTask('js',      ['jshint:default', 'uglify']);
 
-  grunt.registerTask('dist',    ['jshint:default', 'uglify:dist', 'compass:dist', 'concat:dist']);
-  grunt.registerTask('dev',     ['jshint:default', 'uglify:dev', 'compass:dev', 'concat:dev']);
+  grunt.registerTask('dist',    ['jshint:default', 'uglify:dist', 'compass:dist', 'concat:dist', 'copy']);
+  grunt.registerTask('dev',     ['jshint:default', 'uglify:dev', 'compass:dev', 'concat:dev', 'copy']);
 
   grunt.registerTask('all',     ['dev', 'dist']);
   grunt.registerTask('default', 'all');
