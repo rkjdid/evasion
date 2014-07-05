@@ -32,7 +32,7 @@ def message(request):
 
     import logging
     log = logging.getLogger('django.request')
-    log.error("Couldn't send e-mail (message #%s)\nException caught: %s" % (m.id, e))
+    log.exception("Couldn't send e-mail (message #%s)" % m.id)
 
   m.save()
 
