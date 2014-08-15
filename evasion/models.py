@@ -32,7 +32,7 @@ class Referer(models.Model):
 class VisitorReferer(models.Model):
   visitor = models.ForeignKey(Visitor)
   referer = models.ForeignKey(Referer)
-  count = models.IntegerField(default=1)
+  count = models.IntegerField(default=0)
 
   def __unicode__(self):
     return "%s/%s" % (self.referer, self.count)

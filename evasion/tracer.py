@@ -21,7 +21,7 @@ def trace_user(request):
   v.hits += 1
   v.save()
 
-  rv, created = models.VisitorReferer.objects.get_or_create(
+  rv, _ = models.VisitorReferer.objects.get_or_create(
     visitor=v, referer=r
   )
   rv.count += 1
