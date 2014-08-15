@@ -7,7 +7,7 @@ urlpatterns = patterns('',
     url(r'^/?$', 'evasion.views.home', name='home'),
 
     # ajax
-    url(r'^contact/$', 'evasion.ajax.message', name='contact'),
+    url(r'^contact/$', 'evasion.views.message', name='contact'),
 
     # admin
     url(r'^admin/', include(admin.site.urls)),
