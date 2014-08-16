@@ -44,15 +44,14 @@ def message(request):
   except Exception:
     log = logging.getLogger('django.request')
     log.exception("Error tracing user")
-
   m.visitor = v
-  print "fukjoo %s" % v
 
   try:
     m.date_reservation = datetime.datetime.strptime(request.GET['date'], '%d/%m/%Y')
   except:
     m.date_reservation = datetime.datetime.today()
     m.date_filled = False
+  m.save() # allow m.id to be available
 
   try:
     m.message_sent = m.send()
@@ -60,7 +59,6 @@ def message(request):
     m.message_sent = False
     log = logging.getLogger('django.request')
     log.exception("Couldn't send e-mail (message #%s)" % m.id)
-
   m.save()
 
   json_data = dict()
