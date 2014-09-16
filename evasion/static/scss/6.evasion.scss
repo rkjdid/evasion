@@ -1,6 +1,12 @@
 @import "colors";
 @import "mixins";
 
+mark {
+  font-weight: bold;
+  text-decoration: none;
+  background-color: transparent;
+}
+
 // Head
 section.container {
   position: relative;
@@ -66,8 +72,19 @@ nav {
 
   font-size: 2em;
 
+  .fb {
+    position: absolute;
+    left: -65px;
+    top: 6px;
+
+    img {
+      width: 28px;
+    }
+  }
+
   ul {
     list-style: none;
+    color: white;
 
     li {
       cursor: pointer;
@@ -78,7 +95,6 @@ nav {
       &:hover, &.active {
         background: rgba(255,255,255, .4);
         border-bottom: 2px solid white;
-
       }
     }
   }
@@ -93,11 +109,8 @@ nav {
   float: right;
   margin-top: -10px;
   display: inline-block;
-  width: 349px;
+  width: 380px;
   background: $c2;
-  //background: rgba(255, 255, 255, 0.5);
-  //bakcground: rgba(0, 222, 243, 0.36);
-  //background: $c3;
 
   margin-right: 80px;
   padding: 15px;
@@ -122,10 +135,42 @@ nav {
         background: rgba(255,255,255, .4);
       }
 
-      form, p, label {
+      form, p, label, div, em, input, h3, button, span {
         font-family: "Quattrocento Sans", sans-serif;
         z-index: 1;
         position: relative;
+        color: black;
+        font-size: 12pt;
+      }
+
+      a {
+        color: white;
+      }
+      a:hover {
+        color: black;
+      }
+
+      .gallery em {
+        font-weight: normal;
+        font-size: 120%;
+      }
+
+      h3, h4 {
+        font-family: "BebasNeueRegular", sans-serif;
+        margin: 10px 0;
+        font-weight: normal;
+        font-size: 175%;
+      }
+
+      h3 {
+        text-shadow: none;
+        color: #050505;
+        display: block;
+        text-align: right;
+      }
+
+      h4 {
+        display: inline;
       }
     }
   }
@@ -134,11 +179,6 @@ nav {
     display: block;
     width: 100%;
     height: 100%;
-  }
-
-  &, * {
-    color: black;
-    font-size: 12pt;
   }
 
   form {

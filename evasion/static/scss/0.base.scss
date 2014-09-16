@@ -2,13 +2,17 @@
   margin: 0;
   padding: 0;
   border: none;
-  color: white;
+  //color: white;
 }
 
 body {
   width: 100%;
   height: 100%;
   position: relative;
+}
+
+ul {
+  list-style: none;
 }
 
 hr {
@@ -18,6 +22,73 @@ hr {
   border-style: inset;
   border-width: 1px;
   border-color: white;
+}
+
+mark {
+  font-weight: bold;
+  background: none;
+}
+
+.tleft {
+  text-align: left;
+}
+
+.tright {
+  text-align: right;
+}
+
+.dotfilling {
+  position: relative;
+  display: table;
+  width: 100%;
+
+  & > div {
+    display: table-row;
+
+    span {
+      display: table-cell;
+      white-space: nowrap;
+    }
+
+    span:first-of-type {
+      padding-right: .3em;
+    }
+
+    span:last-of-type {
+      padding-left: .3em;
+    }
+
+    span.dotfiller {
+      width: 100%;
+
+      span {
+        position: absolute;
+        left: 0; right: 0;
+        height: 78%;
+
+        border-bottom: 1px dashed black;
+      }
+    }
+  }
+
+  //span {
+  //  display: inline-block;
+  //}
+  //
+  //span.dotfiller {
+  //  position: absolute;
+  //  border-bottom: 1px dotted black;
+  //  overflow: hidden;
+  //  width: 60%;
+  //
+  //  .fill {
+  //    left: 0;
+  //    right: 0;
+  //    width: 100%;
+  //    border-bottom: 1px dotted black;
+  //    overflow: hidde;
+  //  }
+  //}
 }
 
 @import "mixins";
