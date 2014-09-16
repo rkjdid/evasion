@@ -19,7 +19,7 @@ def sendMail(pk, email, firstname, lastname, phone, date_filled, date_reservatio
     text += u"Date de réservation non renseignée\n"
 
   text +=\
-    u"Date d'envoi de la réservation: %s\n" % date_message + \
+    u"Date d'envoi du message: %s\n" % date_message + \
     u"Message: %s" % message
 
   msg = MIMEMultipart("alternative")

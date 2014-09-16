@@ -12,7 +12,7 @@ def home(request):
     tracer.trace_user(request)
   except Exception as e:
     log = logging.getLogger('django.request')
-    log.exception("Error tracing user")
+    log.exception("Error tracing user: %s" % e)
 
   params = {}
 
@@ -41,9 +41,9 @@ def message(request):
   v = None
   try:
     v = tracer.trace_user(request)
-  except Exception:
+  except Exception as e:
     log = logging.getLogger('django.request')
-    log.exception("Error tracing user")
+    log.exception("Error tracing user: %s" % e)
   m.visitor = v
 
   try:
@@ -63,7 +63,11 @@ def message(request):
 
   json_data = dict()
   json_data['result'] = \
-    u'Merci de votre message %s, vous recevrez notre réponse dans les plus brefs délais' % unicode(m.firstname)
+    u'Merci de votre message <em>%s</em>, vous recevrez notre réponse dans les plus brefs délais.<br><br>' % unicode(m.firstname) +\
+    u'N\'hésitez pas à vous balader sur notre page ' + \
+    u'<a href=\'https://www.facebook.com/evasionantillaise\' target=\'_blank\'>Facebook</a>, ' +\
+    u'et si nous avons le plaisir de vous accueillir, à y laisser un petit mot ou partager autour ' +\
+    u'de vous !<br><br>À très bientôt'
   json_data = json.dumps(json_data)
 
   response = HttpResponse(json_data, content_type='application/json')
