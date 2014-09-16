@@ -1,6 +1,6 @@
 (function ($) {
   $(document).ready(function(){
-    $("nav ul li").click(function() {
+    $("nav ul li").click(function(e) {
       var $items = $("div.items");
       if ($(this).hasClass("active"))
       {
@@ -17,7 +17,16 @@
       $("div.items div").removeClass("active");
       var index = $(this).data("index");
       $('div.items div[data-index="' + index + '"]').addClass('active');
+
+      e.stopPropagation();
+      e.stopImmediatePropagation();
     });
+
+    $("ul.fancy").add("section.container").click(function() {
+      $("nav").find("li").removeClass("active");
+      $("div.items").css("display", "none").find("div").removeClass("active");
+    });
+
 
     $(".datepicker").datepicker({
       closeText: 'Fermer',
@@ -34,6 +43,7 @@
       dateFormat : "dd/mm/yy"
     });
 
+    init_jdidbox();
 
     $("form").submit(function() {
       $(this).find(".row").removeClass("error");
@@ -87,6 +97,7 @@
       success: function (data) {
         $form.find(".loader").removeClass("active");
         $form.before("<p>" + data.result + "</p>").remove();
+        $("div.items").find(".contact").find(".phone-contact").remove();
       },
       error: function(data) {
         $form.find(".loader").removeClass("active");
@@ -105,4 +116,25 @@
     return m;
   }
 
+  function init_jdidbox() {
+
+    // Call fancybox plugin on ".gallery" elements if available
+    if (typeof($.fancybox) !== 'undefined')
+      $(".gallery").find('a').fancybox({
+        prevEffect	: 'none',
+        nextEffect	: 'none',
+        closeBtn    : false,
+        loop        : false,
+//        title : function(ce) {return ($(ce.element).data('boxtitle'));},
+        helpers	: {
+          title	: {
+            type: 'inside'
+          },
+          thumbs	: {
+            width	: 50,
+            height	: 50
+          }
+        }
+      });
+  }
 })(jQuery);

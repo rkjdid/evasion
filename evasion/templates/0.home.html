@@ -7,38 +7,104 @@
       <h2 class="anim-fade">Suite St-Barth</h2>
     </header>
     <nav>
+      <a class="fb" href="https://www.facebook.com/evasionantillaise" target="_blank">
+        <img src="{{ STATIC_URL }}img/fb_logo.png" alt="Facebook" title="Facebook Évasion Antillaise" />
+      </a>
       <ul>
-        <li data-index="1">Présentation</li><!--Margin fighting
-     --><li data-index="2">Tarifs</li><!--Margin fighting
-     --><li data-index="3">Réservation</li><!--Margin fighting
+        <li data-index="1">la suite</li><!--Margin fighting
+     --><li data-index="2">tarifs</li><!--Margin fighting
+     --><li data-index="3">contact</li><!--Margin fighting
    --></ul>
     </nav>
   </section>
   <div class="items">
     <div data-index="1">
       <div class="filler"></div>
-      <p>Évasion en amoureux, déclaration d'amour,
-        nuit de noce, anniversaire de mariage...<br><br>
-        À 100 mètres de la plage dans le 8ème à Marseille, la suite St-Barth saura immortaliser vos instants de bonheur.</p>
+      <h3>La suite St-Barth</h3>
+      <p>Venez découvrir notre spendide <mark>chambre avec jacuzzi</mark>, préparée spécialement pour vos
+        rencontres les plus tendres et <mark>romantiques</mark>.</p>
+      <br>
+      <p>Idéalement située à quelques mètres de la plage, dans le 8ème arrondissement de
+        <em><mark>Marseille</mark></em> près du <em>David</em> (<a href="https://www.google.fr/maps/place/Evasion+Antillaise+-+La+Suite+St-Barth/@43.2647427,5.3743965,17z/data=!3m1!4b1!4m2!3m1!1s0x0:0x994e625fa10d733c" target="_blank">Google map</a>),
+        la suite St-Barth saura immortaliser vos évasions en amoureux, déclarations d'amour,
+        nuits de noces, <mark>anniversaires de mariage</mark>...</p>
+      <br>
+      <p>La chambre est équippée d'une luxueuse <mark>douche italienne</mark>, d'un grand écran LCD encastré,
+        d'un <mark>jacuzzi</mark> avec radio intégrée, et tout le nécessaire pour une parenthèse en toute tranquilité
+        aux saveurs des îles.</p>
+      <br>
+      <div class="gallery">
+        <h4>
+          <a rel="stbarth" href="{{ STATIC_URL }}img/v0/1.jpg"
+             data-tb="{{ STATIC_URL }}img/v0/1_tb.jpg">
+            Galerie photo
+          </a>
+        </h4>
+        <em>
+          by <a href="http://andricardin.com" target="_blank">andric cardin</a>
+        </em>
+        {% load tags %}
+        <div style="display: none;">
+          {% for i in 12|get_tworange %}
+          <a rel="stbarth" href="{{ STATIC_URL }}img/v0/{{ i }}.jpg"
+             data-tb="{{ STATIC_URL }}img/v0/{{ i }}_tb.jpg">
+            <img src="{{ STATIC_URL }}img/v0/{{ i }}_tb.jpg" />
+          </a>
+          {% endfor %}
+        </div>
+      </div>
     </div>
     <div data-index="2">
       <div class="filler"></div>
+      <h3>Nos tarifs</h3>
+      <div class='price dotfilling'>
+        <div>
+          <span>1 nuit en semaine</span>
+          <span class="dotfiller"><span></span></span>
+          <span>250€</span>
+        </div>
+      </div>
+      <div class='price dotfilling'>
+        <div>
+          <span>1 nuit en week-end</span>
+          <span class="dotfiller"><span></span></span>
+          <span>300€</span>
+        </div>
+      </div>
+      <div class='price dotfilling'>
+        <div>
+          <span>2 nuits en semaine</span>
+          <span class="dotfiller"><span></span></span>
+          <span>400€</span>
+        </div>
+      </div>
+      <div class='prices dotfilling'>
+        <div>
+          <span>Week-end complet</span>
+          <span class="dotfiller"><span></span></span>
+          <span>500€</span>
+        </div>
+      </div>
+      <div class='prices dotfilling'>
+        <div>
+          <span>Semaine complète</span>
+          <span class="dotfiller"><span></span></span>
+          <span>1500€</span>
+        </div>
+      </div>
+      <br>
       <p>
-        1 nuit en semaine................................................250€<br>
-        1 nuit en week-end............................................300€<br>
-        2 nuits en semaine.............................................400€<br>
-        1 week-end complet..........................................500€<br>
-        1 semaine complète..........................................1500€<br><br>
-        Possibilité de repas en chambre.<br><br>
-      </p>
-      <p style="text-align: left;">
-        Pour le Nouvel an et la St-Valentin, nous contacter.<br>
+        N'hésitez pas à vous renseigner pour toute requête spécifique, <mark>champagne</mark>, pétales de roses, <mark>bougies</mark>...
+        Notre restaurant familial aux saveurs des îles est également à votre disposition, à déguster au lit ou en
+        terrasse.<br><br>
+        Pour le <mark>nouvel an</mark> et la <mark>St-Valentin</mark>, nous contacter.
       </p>
     </div>
     <div data-index="3" class="contact">
       <div class="filler"></div>
-      <p>Contactez Nathalie directement au 0609142444, ou remplissez le formulaire ci-dessous</p>
-      <hr>
+      <h3>Contactez-nous</h3>
+      <p class="phone-contact">Contactez Nathalie directement au 0609142444, ou remplissez le formulaire ci-dessous</p>
+      <hr class="phone-contact">
       <form>
         <div class="row">
           <label for="email">Mail*</label>
@@ -76,8 +142,6 @@
       </form>
     </div>
   </div>
-
-{#  <span class="fullscreen"></span>#}
 
   <ul class="fancy">
     <li>
