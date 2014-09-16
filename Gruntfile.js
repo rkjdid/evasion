@@ -4,8 +4,8 @@ module.exports = function(grunt){
     project:      'evasion',
     static_root:  'evasion/static',
 
-    css_version: 2,
-    js_version: 1
+    css_version: 3,
+    js_version: 2
   };
 
   // paths
@@ -23,25 +23,10 @@ module.exports = function(grunt){
 
   var path = require('path');
 
-  grunt.initConfig({
-    jshint: {
-      default: [
-        path.join('!' + __opts.path.js, 'lib'),
-        path.join(__opts.path.js, '*.js')
-      ]
-    },
-
-    uglify: {
+  // externalize uglify parameters, to allow dynamic key assigning for file path (js_version)
+  var uglify_parameters = {
       dist: {
         files: {
-          'evasion/static/min/evasion.1.min.js': [
-            path.join('!' + __opts.path.js, '**/*min.js'),
-
-            path.join(__opts.path.js, 'lib/jquery-2.1.1.js'),
-            path.join(__opts.path.js, 'lib/jquery-ui-1.11.0.js'),
-            path.join(__opts.path.js, 'lib/**/*.js'),
-            path.join(__opts.path.js, '*.js')
-          ]
         }
       },
       dev: {
@@ -50,17 +35,34 @@ module.exports = function(grunt){
           mangle: false
         },
         files: {
-          'evasion/static/min/evasion.1.dev.min.js': [
-            path.join('!' + __opts.path.js, '**/*min.js'),
-
-            path.join(__opts.path.js, 'lib/jquery-2.1.1.js'),
-            path.join(__opts.path.js, 'lib/jquery-ui.1.11.0.js'),
-            path.join(__opts.path.js, 'lib/**/*.js'),
-            path.join(__opts.path.js, '*.js')
-          ]
         }
       }
+    };
+
+  var js_files = [
+    path.join('!' + __opts.path.js, '**/*min.js'),
+    path.join(__opts.path.js, 'lib/jquery-2.1.1.js'),
+    path.join(__opts.path.js, 'lib/jquery-ui.1.11.0.js'),
+    path.join(__opts.path.js, 'lib/jquery.jdidbox-0.1.0.js'),
+    path.join(__opts.path.js, 'lib/**/*.js'),
+    path.join(__opts.path.js, '*.js')
+  ];
+
+  uglify_parameters.dist.files
+    ['evasion/static/min/evasion.' + __config['js_version'] + '.min.js'] = js_files;
+
+  uglify_parameters.dev.files
+    ['evasion/static/min/evasion.' + __config['js_version'] + '.dev.min.js'] = js_files;
+
+  grunt.initConfig({
+    jshint: {
+      default: [
+        path.join('!' + __opts.path.js, 'lib'),
+        path.join(__opts.path.js, '*.js')
+      ]
     },
+
+    uglify: uglify_parameters,
 
     compass: {
       dist: {
@@ -101,6 +103,12 @@ module.exports = function(grunt){
         expand: true,
         cwd: path.join(__opts.path.scss, "lib/jquery-ui-1.11.0-custom/"),
         src: ["images/*"],
+        dest: __opts.path.out
+      },
+      jdidbox: {
+        expand: true,
+        cwd: path.join(__opts.path.scss, "lib/jquery.jdidbox-0.1.0/"),
+        src: ["*png", "*gif"],
         dest: __opts.path.out
       }
     },

@@ -19,9 +19,9 @@
   <link href='http://fonts.googleapis.com/css?family=Quattrocento+Sans' rel='stylesheet' type='text/css'>
 
 {% if DEBUG %}
-  <link rel="stylesheet" type="text/css" href="{% static "min/evasion.2.dev.min.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "min/evasion.3.dev.min.css" %}" />
 {% else %}
-  <link rel="stylesheet" type="text/css" href="{% static "min/evasion.2.min.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "min/evasion.3.min.css" %}" />
 {% endif %}
 
   {% block posthead %}{% endblock %}
@@ -32,9 +32,9 @@
   {% block body %}{% endblock %}
 
 {% if DEBUG %}
-  <script src="{% static "min/evasion.1.dev.min.js" %}"></script>
+  <script src="{% static "min/evasion.2.dev.min.js" %}"></script>
 {% else %}
-  <script src="{% static "min/evasion.1.min.js" %}"></script>
+  <script src="{% static "min/evasion.2.min.js" %}"></script>
 {% endif %}
 {% block script %}{% endblock %}
   <script>
