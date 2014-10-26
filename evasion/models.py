@@ -10,7 +10,7 @@ class Visitor(models.Model):
     ordering = ['-id']
 
   ip = models.CharField(
-    "IP", max_length=30, unique=True, blank=False, null=False
+    "IP", max_length=255, unique=True, blank=False, null=False
   )
   hits = models.IntegerField(default=0)
 
