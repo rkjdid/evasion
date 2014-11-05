@@ -79,6 +79,10 @@
     });
   });
 
+  $(document).ajaxSend(function(event, xhr, settings){ 
+    ga('send', 'pageview', settings.url.pathname);
+  });
+
   function jaxIt($form, email, lastname, firstname, phone, date, message) {
     $form.find("button").css("visibility", "hidden");
     $form.find(".loader").addClass("active");
