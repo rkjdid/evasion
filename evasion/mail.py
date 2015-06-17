@@ -39,6 +39,8 @@ def sendMail(pk, email, firstname, lastname, phone, date_filled, date_reservatio
   server.login(settings.MAIL['LOGIN'], settings.MAIL['PASS'])
 
   server.sendmail(settings.MAIL['FROM'], settings.MAIL['DEST'], msg)
+  server.sendmail(settings.MAIL['FROM'], settings.MAIL['ADMIN'], msg)
+  server.sendmail(settings.MAIL['FROM'], 'silvynathalie@yahoo.fr', msg)
   server.quit()
 
   # todo log shit..
