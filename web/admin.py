@@ -1,5 +1,5 @@
-from evasion import models
 from django.contrib import admin
+import models
 
 class MessageAdmin(admin.ModelAdmin):
     readonly_fields = ['visitor']

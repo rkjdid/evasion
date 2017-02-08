@@ -1,4 +1,5 @@
-{% extends 'base.html' %}
+{% extends 'web/base.html' %}
+{% load static %}
 
 {% block body %}
   <section class="container anim-fadebg">
@@ -7,8 +8,8 @@
       <h2 class="anim-fade">Suite St-Barth</h2>
     </header>
     <nav>
-      <a class="fb" href="https://www.facebook.com/evasionantillaise" target="_blank">
-        <img src="{{ STATIC_URL }}img/fb_logo.png" alt="Facebook" title="Facebook Évasion Antillaise" />
+      <a class="fb" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTNP_rF2iO69V8VDYzp6AMuy2-Tl8g7oA1YMXAiCe_LBKezC2AHA" target="_blank">
+        <img src="{% static "web/img/fb_logo.png" %}" alt="Facebook" title="Facebook Évasion Antillaise" />
       </a>
       <ul>
         <li data-index="1">la suite</li><!--Margin fighting
@@ -25,7 +26,7 @@
     rencontres les plus tendres et <mark>romantiques</mark>.</p>
       <br>
       <p>Idéalement située à quelques mètres de la plage, dans le 8ème arrondissement de
-        <em><mark>Marseille</mark></em> près du <em>David</em> (<a href="https://www.google.fr/maps/place/Evasion+Antillaise+-+La+Suite+St-Barth/@43.2647427,5.3743965,17z/data=!3m1!4b1!4m2!3m1!1s0x0:0x994e625fa10d733c" target="_blank">Google map</a>),
+        <em><mark>Marseille</mark></em> près du <em>David</em> (<a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTNP_rF2iO69V8VDYzp6AMuy2-Tl8g7oA1YMXAiCe_LBKezC2AHA" target="_blank">Google map</a>),
         la suite St-Barth saura immortaliser vos évasions en amoureux, déclarations d'amour,
         nuits de noces, <mark>anniversaires de mariage</mark>...</p>
       <br>
@@ -35,8 +36,8 @@
       <br>
       <div class="gallery">
         <h4>
-          <a rel="stbarth" href="{{ STATIC_URL }}img/v1/1.jpg"
-             data-tb="{{ STATIC_URL }}img/v1/1_tb.jpg">
+          <a rel="stbarth" href="{% static "img/v1/1.jpg" %}"
+             data-tb="{% static "web/img/v1/1_tb.jpg" %}">
             Galerie photo
           </a>
         </h4>
@@ -46,8 +47,8 @@
         {% load tags %}
         <div style="display: none;">
           {% for i in 12|get_tworange %}
-          <a rel="stbarth" href="{{ STATIC_URL }}img/v1/{{ i }}.jpg"
-             data-tb="{{ STATIC_URL }}img/v1/{{ i }}_tb.jpg"></a>
+          <a rel="stbarth" href="{% static "img/v1/{{ i }}.jpg" %}"
+             data-tb="{% static "web/img/v1/{{ i }}_tb.jpg" %}"></a>
           {% endfor %}
         </div>
       </div>
@@ -99,7 +100,7 @@
         Notre restaurant familial aux saveurs de la mer est également à votre disposition,
         repas à déguster au lit ou en terrasse.
         <br><br>
-        Rendez-vous sur notre page <a href="https://www.facebook.com/evasionantillaise" target="_blank">Facebook</a>,
+        Rendez-vous sur notre page <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTNP_rF2iO69V8VDYzp6AMuy2-Tl8g7oA1YMXAiCe_LBKezC2AHA" target="_blank">Facebook</a>,
         pour profiter de promotions de dernière minute !
         <br><br>
         Pour le <mark>nouvel an</mark> et la <mark>St-Valentin</mark>, nous contacter.
@@ -142,7 +143,7 @@
         </div>
         <div class="row">
           <label></label>
-          <img class="loader" src="{{ STATIC_URL }}img/loading.gif" alt="loading.." /><button>Envoyer</button>
+          <img class="loader" src="{% static "web/img/loading.gif" %}" alt="loading.." /><button>Envoyer</button>
         </div>
       </form>
     </div>

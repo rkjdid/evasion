@@ -4,7 +4,7 @@ import smtplib, re
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
-import settings
+from evasion import settings
 
 def sendMail(pk, email, firstname, lastname, phone, date_filled, date_reservation, date_message, message):
   text =\

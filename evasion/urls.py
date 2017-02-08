@@ -1,20 +1,9 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import include, url
+from django.views.generic.base import RedirectView
 
-from django.contrib import admin
-admin.autodiscover()
+import web.urls
 
-urlpatterns = patterns('',
-    url(r'^/?$', 'evasion.views.home', name='home'),
-
-    # ajax
-    url(r'^contact/$', 'evasion.views.message', name='contact'),
-
-    # admin
-    url(r'^admin/', include(admin.site.urls)),
-)
-
-
-# Redirects
-urlpatterns += patterns('',
-    url(r'^.*', 'evasion.views.redirect', name="redirect"),
-)
+urlpatterns = [
+    url(r'^', include(web.urls)),
+    url(r'^.*', RedirectView.as_view(url='/')),
+]

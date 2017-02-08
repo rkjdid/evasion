@@ -4,7 +4,8 @@ from django.template.context import RequestContext
 from django.http import HttpResponse
 
 import datetime, pytz, json, logging
-import models, settings, tracer
+import models, tracer
+from evasion import settings
 
 
 def home(request):
@@ -14,12 +15,9 @@ def home(request):
     log = logging.getLogger('django.request')
     log.exception("Error tracing user: %s" % e)
 
-  params = {}
-
   return render_to_response(
-      '0.home.html',
-      params,
-      context_instance=RequestContext(request)
+      'web/0.home.html',
+      context=RequestContext(request)
   )
 
 #------#
@@ -76,4 +74,6 @@ def message(request):
   return response
 
 def redirect(request, url="/"):
-  return _redirect(url, context_instance=RequestContext)
+  return _redirect(url, context=RequestContext)
+
+

@@ -1,8 +1,7 @@
 from django.db import models
 
+from evasion import settings
 import datetime, pytz
-import settings
-
 import mail
 
 class Visitor(models.Model):
