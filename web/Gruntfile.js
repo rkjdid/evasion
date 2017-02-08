@@ -2,7 +2,7 @@ module.exports = function(grunt){
   // project global config
   var __config = {
     project:      'evasion',
-    static_root:  'evasion/static',
+    static_root:  'static/web',
 
     css_version: 3,
     js_version: 2

@@ -36,7 +36,7 @@
       <br>
       <div class="gallery">
         <h4>
-          <a rel="stbarth" href="{% static "img/v1/1.jpg" %}"
+          <a rel="stbarth" href="{% static "web/img/v1/1.jpg" %}"
              data-tb="{% static "web/img/v1/1_tb.jpg" %}">
             Galerie photo
           </a>
@@ -47,7 +47,7 @@
         {% load tags %}
         <div style="display: none;">
           {% for i in 12|get_tworange %}
-          <a rel="stbarth" href="{% static "img/v1/{{ i }}.jpg" %}"
+          <a rel="stbarth" href="{% static "web/img/v1/{{ i }}.jpg" %}"
              data-tb="{% static "web/img/v1/{{ i }}_tb.jpg" %}"></a>
           {% endfor %}
         </div>
