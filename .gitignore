@@ -12,4 +12,8 @@ settings.py
 evasion/static/css/
 evasion/static/min/
 
-
+# other
+uwsgi.ini
+*.pid
+*.sock
+/static/
