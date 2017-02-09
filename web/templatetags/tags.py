@@ -1,4 +1,5 @@
 from django.template import Library
+from django.contrib.staticfiles.templatetags.staticfiles import static
 
 register = Library()
 
@@ -30,4 +31,9 @@ def get_onerange(to_value):
 @register.filter
 def get_tworange(to_value):
   return range(2, to_value)
+
+@register.simple_tag
+def static_fmt(s, i):
+  print(s, static(s), i, static(s) % i)
+  return static(s % i)
 

@@ -47,8 +47,8 @@
         {% load tags %}
         <div style="display: none;">
           {% for i in 12|get_tworange %}
-          <a rel="stbarth" href="{% static "web/img/v1/{{ i }}.jpg" %}"
-             data-tb="{% static "web/img/v1/{{ i }}_tb.jpg" %}"></a>
+          <a rel="stbarth" href="{% static_fmt "web/img/v1/%s.jpg" i %}"
+             data-tb="{% static_fmt "web/img/v1/%s_tb.jpg" i %}"></a>
           {% endfor %}
         </div>
       </div>
