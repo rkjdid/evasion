@@ -8,7 +8,7 @@
       <h2 class="anim-fade">Suite St-Barth</h2>
     </header>
     <nav>
-      <a class="fb" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTNP_rF2iO69V8VDYzp6AMuy2-Tl8g7oA1YMXAiCe_LBKezC2AHA" target="_blank">
+      <a class="fb">
         <img src="{% static "web/img/fb_logo.png" %}" alt="Facebook" title="Facebook Évasion Antillaise" />
       </a>
       <ul>
@@ -26,7 +26,7 @@
     rencontres les plus tendres et <mark>romantiques</mark>.</p>
       <br>
       <p>Idéalement située à quelques mètres de la plage, dans le 8ème arrondissement de
-        <em><mark>Marseille</mark></em> près du <em>David</em> (<a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTNP_rF2iO69V8VDYzp6AMuy2-Tl8g7oA1YMXAiCe_LBKezC2AHA" target="_blank">Google map</a>),
+        <em><mark>Marseille</mark></em> près du <em>David</em>,
         la suite St-Barth saura immortaliser vos évasions en amoureux, déclarations d'amour,
         nuits de noces, <mark>anniversaires de mariage</mark>...</p>
       <br>
@@ -60,35 +60,35 @@
         <div>
           <span>1 nuit en semaine</span>
           <span class="dotfiller"><span></span></span>
-          <span>250€</span>
+          <span>€</span>
         </div>
       </div>
       <div class='price dotfilling'>
         <div>
           <span>1 nuit en week-end</span>
           <span class="dotfiller"><span></span></span>
-          <span>300€</span>
+          <span>€</span>
         </div>
       </div>
       <div class='price dotfilling'>
         <div>
           <span>2 nuits en semaine</span>
           <span class="dotfiller"><span></span></span>
-          <span>450€</span>
+          <span>€</span>
         </div>
       </div>
       <div class='prices dotfilling'>
         <div>
           <span>Semaine complète</span>
           <span class="dotfiller"><span></span></span>
-          <span>1450€</span>
+          <span>€</span>
         </div>
       </div>
       <div class='prices dotfilling'>
         <div>
           <span>Coffret <em>"Infiniment Toi"</em></span>
           <span class="dotfiller"><span></span></span>
-          <span>130€</span>
+          <span>€</span>
         </div>
       </div>
       <br>
@@ -100,7 +100,7 @@
         Notre restaurant familial aux saveurs de la mer est également à votre disposition,
         repas à déguster au lit ou en terrasse.
         <br><br>
-        Rendez-vous sur notre page <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTNP_rF2iO69V8VDYzp6AMuy2-Tl8g7oA1YMXAiCe_LBKezC2AHA" target="_blank">Facebook</a>,
+        Rendez-vous sur notre page Facebook,
         pour profiter de promotions de dernière minute !
         <br><br>
         Pour le <mark>nouvel an</mark> et la <mark>St-Valentin</mark>, nous contacter.
@@ -109,41 +109,36 @@
     <div data-index="3" class="contact">
       <div class="filler"></div>
       <h3>Contactez-nous</h3>
-      <p class="phone-contact">Contactez Nathalie directement au 0609142444, ou remplissez le formulaire ci-dessous</p>
       <hr class="phone-contact">
       <form>
         <div class="row">
           <label for="email">Mail*</label>
-          <input id="email" name="email" type="text"/><br>
+          <input disabled id="email" name="email" type="text"/><br>
         </div>
 
         <div class="row">
           <label for="firstname">Prénom*</label>
-          <input id="firstname" name="firstname" type="text"/><br>
+          <input disabled id="firstname" name="firstname" type="text"/><br>
         </div>
 
         <div class="row">
           <label for="lastname">Nom</label>
-          <input id="lastname" name="lastname" type="text"/><br>
+          <input disabled id="lastname" name="lastname" type="text"/><br>
         </div>
 
         <div class="row">
           <label for="phone">Téléphone</label>
-          <input id="phone" name="phone" type="text"/><br>
+          <input disabled id="phone" name="phone" type="text"/><br>
         </div>
 
         <div class="row">
           <label for="date">Date</label>
-          <input id="date" name="date" type="text" class="datepicker" size="10"/><br>
+          <input disabled id="date" name="date" type="text" class="datepicker" size="10"/><br>
         </div>
 
         <div class="row">
           <label for="message">Message</label>
-          <textarea id="message" name="message" rows="6" placeholder="Pour toute question ou information complémentaire"></textarea><br>
-        </div>
-        <div class="row">
-          <label></label>
-          <img class="loader" src="{% static "web/img/loading.gif" %}" alt="loading.." /><button>Envoyer</button>
+          <textarea disabled id="message" name="message" rows="6" placeholder="Pour toute question ou information complémentaire"></textarea><br>
         </div>
       </form>
     </div>
