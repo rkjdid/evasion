@@ -32,12 +32,28 @@
 {% else %}
   <link rel="stylesheet" type="text/css" href="{% static "web/min/evasion.3.min.css" %}" />
 {% endif %}
+  <style type"text/css">
+    #jdidback img {
+      opacity: .45;
+      max-width: 3%;
+      position: fixed;
+      left: 30px;
+      top: 28px;
+      z-index: 9999;
+    }
+    #jdidback img:hover {
+      opacity: 1;
+    }
+  </style>
 
   {% block posthead %}{% endblock %}
 </head>
 
 
 <body>
+  <a title="back to /works/" id="jdidback" href="/works/">
+    <img src="/img/left.png" alt="back" />
+  </a>
   {% block body %}{% endblock %}
 
 {% if DEBUG %}
