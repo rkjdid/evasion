@@ -4,7 +4,7 @@ module.exports = function(grunt){
     project:      'evasion',
     static_root:  'static/web',
 
-    css_version: 3,
+    css_version: 4,
     js_version: 2
   };
 
